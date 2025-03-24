@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rahul-godiyal/php-ups-api-wrapper": "v1.0.0"
+    }
+}
