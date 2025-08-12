@@ -1,0 +1,116 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * PComposer - A fast PHP package manager inspired by pnpm
+ * 
+ * This tool works like pnpm for PHP, using a global package store
+ * to avoid re-downloading existing packages while maintaining
+ * compatibility with composer.json format.
+ */
+
+require_once __DIR__ . '/src/PComposer.php';
+require_once __DIR__ . '/src/GlobalStore.php';
+require_once __DIR__ . '/src/PackageManager.php';
+require_once __DIR__ . '/src/ComposerJsonParser.php';
+require_once __DIR__ . '/src/VendorLinker.php';
+require_once __DIR__ . '/src/LockFile.php';
+require_once __DIR__ . '/src/Utils.php';
+
+use PComposer\PComposer;
+
+// Handle command line arguments
+$args = $argv;
+array_shift($args); // Remove script name
+
+if (empty($args)) {
+    echo "PComposer - Fast PHP Package Manager\n";
+    echo "Usage: pcomposer <command> [options]\n\n";
+    echo "Commands:\n";
+    echo "  install     Install dependencies from composer.json\n";
+    echo "  update      Update dependencies\n";
+    echo "  require     Add a package to composer.json\n";
+    echo "  remove      Remove a package from composer.json\n";
+    echo "  list        List installed packages\n";
+    echo "  show        Show package information\n";
+    echo "  dump-autoload Generate autoloader\n";
+    echo "  clear-cache Clear global package cache\n";
+    echo "  lock        Show lock file information\n";
+    echo "  unlock      Remove lock file to force fresh install\n";
+    echo "  --version   Show version information\n";
+    echo "  --help      Show this help message\n";
+    exit(0);
+}
+
+$command = $args[0];
+
+try {
+    $pcomposer = new PComposer();
+    
+    switch ($command) {
+        case 'install':
+            $pcomposer->install();
+            break;
+        case 'update':
+            $pcomposer->update();
+            break;
+        case 'require':
+            if (empty($args[1])) {
+                throw new Exception("Package name required for require command");
+            }
+            $pcomposer->requirePackage($args[1], isset($args[2]) ? $args[2] : null);
+            break;
+        case 'remove':
+            if (empty($args[1])) {
+                throw new Exception("Package name required for remove command");
+            }
+            $pcomposer->removePackage($args[1]);
+            break;
+        case 'list':
+            $pcomposer->listPackages();
+            break;
+        case 'show':
+            if (empty($args[1])) {
+                throw new Exception("Package name required for show command");
+            }
+            $pcomposer->showPackage($args[1]);
+            break;
+        case 'dump-autoload':
+            $pcomposer->dumpAutoload();
+            break;
+        case 'clear-cache':
+            $pcomposer->clearCache();
+            break;
+        case 'lock':
+            $pcomposer->showLockInfo();
+            break;
+        case 'unlock':
+            $pcomposer->removeLockFile();
+            break;
+        case '--version':
+            echo "PComposer version 1.0.0\n";
+            break;
+        case '--help':
+            echo "PComposer - Fast PHP Package Manager\n";
+            echo "Usage: pcomposer <command> [options]\n\n";
+            echo "Commands:\n";
+            echo "  install     Install dependencies from composer.json\n";
+            echo "  update      Update dependencies\n";
+            echo "  require     Add a package to composer.json\n";
+            echo "  remove      Remove a package from composer.json\n";
+            echo "  list        List installed packages\n";
+            echo "  show        Show package information\n";
+                echo "  dump-autoload Generate autoloader\n";
+    echo "  clear-cache Clear global package cache\n";
+    echo "  lock        Show lock file information\n";
+    echo "  unlock      Remove lock file to force fresh install\n";
+    echo "  --version   Show version information\n";
+    echo "  --help      Show this help message\n";
+            break;
+        default:
+            throw new Exception("Unknown command: $command");
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage() . "\n";
+    exit(1);
+}
