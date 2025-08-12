@@ -1,0 +1,7 @@
+# PComposer v1.0.0 Checksums
+# Generated: 2025-08-12 11:09:17
+
+b4028731ead5dd091f1e5ade7ee277ed98cf57b81c1b9c9c23a06cae1d9b2d58  README.md
+433f8b1f47f8a667d8d4784eb5738e9cb969f47021d3c12894b05dfd3374a3e0  install.bat
+978f8dcf64a0d9ec2a86b4c1b2ad7034c83b9e7b146c3de69f9ea45169fb4485  install.sh
+5ed72e5a9b5d45a51287df86021d73277f954298fb744f718c3ff3a3dc0b2aba  pcomposer-1.0.0.php

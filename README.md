@@ -14,18 +14,48 @@ PComposer is a fast PHP package manager inspired by pnpm, designed to resolve Co
 
 ## Installation
 
+### Option 1: Single File Distribution (Recommended)
+Download the pre-built single-file executable:
+
+```bash
+# Download the latest version
+curl -O https://github.com/your-repo/pcomposer/releases/download/v1.0.0/pcomposer-1.0.0.php
+
+# Make executable
+chmod +x pcomposer-1.0.0.php
+
+# Use directly
+./pcomposer-1.0.0.php install
+```
+
+### Option 2: Installer Scripts
+Use the platform-specific installers:
+
+**Unix/Linux/macOS:**
+```bash
+curl -O https://github.com/your-repo/pcomposer/releases/download/v1.0.0/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+**Windows:**
+```cmd
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/your-repo/pcomposer/releases/download/v1.0.0/install.bat', 'install.bat')"
+install.bat
+```
+
+### Option 3: From Source (Development)
 1. Clone or download this repository
-2. Make the script executable:
+2. Run the installation script:
+   ```bash
+   chmod +x install.sh
+   ./install.sh
+   ```
+   
+   Or install manually:
    ```bash
    chmod +x pcomposer
-   ```
-3. Add to your PATH or use directly:
-   ```bash
-   # Add to PATH (optional)
    sudo ln -s $(pwd)/pcomposer /usr/local/bin/pcomposer
-   
-   # Or use directly
-   ./pcomposer --version
    ```
 
 ## Requirements
@@ -272,6 +302,24 @@ pcomposer/
 3. Make your changes
 4. Test thoroughly
 5. Submit a pull request
+
+## Building from Source
+
+If you want to build PComposer from source or create your own distribution:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-repo/pcomposer.git
+cd pcomposer
+
+# Run the build script
+php build.php
+
+# The built files will be in the dist/ directory
+ls -la dist/
+```
+
+For detailed build information, see [BUILD.md](BUILD.md).
 
 ## License
 

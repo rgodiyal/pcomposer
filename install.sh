@@ -5,7 +5,8 @@
 
 set -e
 
-echo "=== PComposer Installation Script ==="
+echo "🚀 PComposer Installation Script"
+echo "================================"
 echo ""
 echo "This script will install PComposer globally on your system."
 echo "PComposer will be available as 'pcomposer' command from anywhere."
@@ -50,7 +51,7 @@ if [[ $PHP_MAJOR -lt 7 ]] || ([[ $PHP_MAJOR -eq 7 ]] && [[ $PHP_MINOR -lt 4 ]]);
     exit 1
 fi
 
-echo "✓ PHP version $PHP_VERSION is compatible"
+echo "✅ PHP version $PHP_VERSION is compatible"
 
 # Check required PHP extensions
 echo "Checking PHP extensions..."
@@ -72,7 +73,7 @@ if [[ ${#MISSING_EXTENSIONS[@]} -gt 0 ]]; then
     exit 1
 fi
 
-echo "✓ All required PHP extensions are available"
+echo "✅ All required PHP extensions are available"
 
 # Create global installation directory
 INSTALL_DIR="/usr/local/bin"
@@ -101,13 +102,13 @@ if [[ "$NEED_SUDO" == true ]]; then
 else
     ln -s "$PCOMPOSER_PATH" "$INSTALL_DIR/pcomposer"
 fi
-echo "✓ PComposer installed successfully!"
+echo "✅ PComposer installed successfully!"
 
 # Test installation
 echo "Testing installation..."
 if command -v pcomposer >/dev/null 2>&1; then
     VERSION=$(pcomposer --version)
-    echo "✓ $VERSION is now available globally"
+    echo "✅ $VERSION is now available globally"
 else
     echo "Error: Installation failed. Please check your PATH."
     exit 1
@@ -116,10 +117,10 @@ fi
 # Create global store directory
 echo "Setting up global package store..."
 mkdir -p "$HOME/.pcomposer/store"
-echo "✓ Global store created at $HOME/.pcomposer/store"
+echo "✅ Global store created at $HOME/.pcomposer/store"
 
 echo ""
-echo "=== Installation Complete! ==="
+echo "🎉 Installation Complete!"
 echo ""
 echo "PComposer is now installed and ready to use."
 echo ""
