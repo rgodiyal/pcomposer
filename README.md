@@ -38,11 +38,13 @@ chmod +x install.sh
 ./install.sh
 ```
 
-**Windows:**
+**Windows (Composer-style):**
 ```cmd
-powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/your-repo/pcomposer/releases/download/v1.0.0/install.bat', 'install.bat')"
-install.bat
+# One-liner installer (recommended)
+php -r "copy('https://github.com/your-repo/pcomposer/releases/download/v1.0.0/installer.php', 'installer.php');" && php installer.php && del installer.php
 ```
+
+**Note**: After installation, open a NEW command prompt/PowerShell window for the `pcomposer` command to be available.
 
 ### Option 3: From Source (Development)
 1. Clone or download this repository

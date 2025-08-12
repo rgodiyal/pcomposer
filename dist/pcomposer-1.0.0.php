@@ -3,7 +3,7 @@
 
 /**
  * PComposer v1.0.0 - Single File Distribution
- * Generated: 2025-08-12 11:09:17
+ * Generated: 2025-08-12 13:05:23
  * 
  * This file contains all PComposer source code bundled into a single executable.
  * Users can simply download this file and run: php pcomposer-1.0.0.php install

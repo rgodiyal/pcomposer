@@ -118,34 +118,9 @@ file_put_contents("$distDir/install.sh", $unixInstaller);
 chmod("$distDir/install.sh", 0755);
 echo "  ✅ Created: $distDir/install.sh\n";
 
-// Windows installer
-$windowsInstaller = "@echo off
-REM PComposer v$version Installer for Windows
-
-echo Installing PComposer v$version...
-
-REM Detect installation directory
-set INSTALL_DIR=%USERPROFILE%\\AppData\\Local\\pcomposer
-if not exist \"%INSTALL_DIR%\" mkdir \"%INSTALL_DIR%\"
-
-REM Copy executable
-copy \"pcomposer-$version.php\" \"%INSTALL_DIR%\\pcomposer.php\"
-
-REM Create batch file
-echo @echo off > \"%INSTALL_DIR%\\pcomposer.bat\"
-echo php \"%%~dp0pcomposer.php\" %%* >> \"%INSTALL_DIR%\\pcomposer.bat\"
-
-REM Add to PATH
-setx PATH \"%PATH%;%INSTALL_DIR%\"
-
-echo PComposer installed successfully!
-echo Location: %INSTALL_DIR%\\pcomposer.bat
-echo Usage: pcomposer --help
-pause
-";
-
-file_put_contents("$distDir/install.bat", $windowsInstaller);
-echo "  ✅ Created: $distDir/install.bat\n";
+// Copy the PHP installer
+copy("dist/installer.php", "$distDir/installer.php");
+echo "  ✅ Created: $distDir/installer.php\n";
 
 // README
 $readme = "# PComposer v$version - Distribution
@@ -156,7 +131,8 @@ This directory contains the built distribution files for PComposer v$version.
 
 - **pcomposer-$version.php** - Single-file executable (works on all platforms)
 - **install.sh** - Unix/Linux/macOS installer
-- **install.bat** - Windows installer
+- **install.bat** - Windows batch installer
+- **install.ps1** - Windows PowerShell installer (recommended)
 - **README.md** - This file
 
 ## Installation
@@ -183,10 +159,16 @@ chmod +x install.sh
 
 ### Option 3: Windows Installer
 ```cmd
-# Download and run installer
+# Download and run batch installer
 powershell -Command \"(New-Object Net.WebClient).DownloadFile('https://github.com/your-repo/pcomposer/releases/download/v$version/install.bat', 'install.bat')\"
 install.bat
+
+# Or use PowerShell installer (recommended)
+powershell -Command \"(New-Object Net.WebClient).DownloadFile('https://github.com/your-repo/pcomposer/releases/download/v$version/install.ps1', 'install.ps1')\"
+powershell -ExecutionPolicy Bypass -File install.ps1
 ```
+
+**Note**: After installation, open a NEW command prompt/PowerShell window for the `pcomposer` command to be available.
 
 ## Usage
 

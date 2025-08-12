@@ -6,7 +6,8 @@ This directory contains the built distribution files for PComposer v1.0.0.
 
 - **pcomposer-1.0.0.php** - Single-file executable (works on all platforms)
 - **install.sh** - Unix/Linux/macOS installer
-- **install.bat** - Windows installer
+- **install.bat** - Windows batch installer
+- **install.ps1** - Windows PowerShell installer (recommended)
 - **README.md** - This file
 
 ## Installation
@@ -33,10 +34,16 @@ chmod +x install.sh
 
 ### Option 3: Windows Installer
 ```cmd
-# Download and run installer
+# Download and run batch installer
 powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/your-repo/pcomposer/releases/download/v1.0.0/install.bat', 'install.bat')"
 install.bat
+
+# Or use PowerShell installer (recommended)
+powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/your-repo/pcomposer/releases/download/v1.0.0/install.ps1', 'install.ps1')"
+powershell -ExecutionPolicy Bypass -File install.ps1
 ```
+
+**Note**: After installation, open a NEW command prompt/PowerShell window for the `pcomposer` command to be available.
 
 ## Usage
 
