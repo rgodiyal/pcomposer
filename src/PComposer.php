@@ -4,6 +4,9 @@ namespace PComposer;
 
 /**
  * Main PComposer class that orchestrates all package management operations
+ * 
+ * @author Rahul Godiyal <rgodiyal482@gmail.com>
+ * @version 1.0.0
  */
 class PComposer
 {

@@ -3,9 +3,13 @@
 /**
  * PComposer Final Build Script
  * Creates a single-file executable for distribution
+ * 
+ * @author Rahul Godiyal <rgodiyal482@gmail.com>
+ * @version 1.0.0
  */
 
 $version = '1.0.0';
+$author = 'Rahul Godiyal <rgodiyal482@gmail.com>';
 $distDir = 'dist';
 
 echo "🏗️  Building PComposer v$version\n";
@@ -24,6 +28,7 @@ $content .= "<?php\n\n";
 $content .= "/**\n";
 $content .= " * PComposer v$version - Single File Distribution\n";
 $content .= " * Generated: " . date('Y-m-d H:i:s') . "\n";
+$content .= " * @author $author\n";
 $content .= " * \n";
 $content .= " * This file contains all PComposer source code bundled into a single executable.\n";
 $content .= " * Users can simply download this file and run: php pcomposer-$version.php install\n";
@@ -84,6 +89,7 @@ echo "🔧 Creating installers...\n";
 $unixInstaller = "#!/bin/bash
 
 # PComposer v$version Installer
+# Author: $author
 # Simple installer for Unix/Linux/macOS
 
 set -e
@@ -126,6 +132,8 @@ echo "  ✅ Created: $distDir/installer.php\n";
 $readme = "# PComposer v$version - Distribution
 
 This directory contains the built distribution files for PComposer v$version.
+
+**Author:** $author
 
 ## Files
 
@@ -215,6 +223,7 @@ foreach ($files as $file) {
 }
 
 $checksumContent = "# PComposer v$version Checksums\n";
+$checksumContent .= "# Author: $author\n";
 $checksumContent .= "# Generated: " . date('Y-m-d H:i:s') . "\n\n";
 
 foreach ($checksums as $file => $hash) {

@@ -7,6 +7,9 @@
  * This tool works like pnpm for PHP, using a global package store
  * to avoid re-downloading existing packages while maintaining
  * compatibility with composer.json format.
+ * 
+ * @author Rahul Godiyal <rgodiyal482@gmail.com>
+ * @version 1.0.0
  */
 
 require_once __DIR__ . '/src/PComposer.php';

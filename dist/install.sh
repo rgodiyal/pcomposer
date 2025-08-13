@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # PComposer v1.0.0 Installer
+# Author: Rahul Godiyal <rgodiyal482@gmail.com>
 # Simple installer for Unix/Linux/macOS
 
 set -e

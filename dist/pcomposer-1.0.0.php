@@ -3,7 +3,8 @@
 
 /**
  * PComposer v1.0.0 - Single File Distribution
- * Generated: 2025-08-12 13:05:23
+ * Generated: 2025-08-13 07:36:14
+ * @author Rahul Godiyal <rgodiyal482@gmail.com>
  * 
  * This file contains all PComposer source code bundled into a single executable.
  * Users can simply download this file and run: php pcomposer-1.0.0.php install
@@ -19,6 +20,9 @@ if (php_sapi_name() !== 'cli') {
 // Source: src/PComposer.php
 /**
  * Main PComposer class that orchestrates all package management operations
+ * 
+ * @author Rahul Godiyal <rgodiyal482@gmail.com>
+ * @version 1.0.0
  */
 class PComposer
 {
@@ -2625,6 +2629,9 @@ class Utils
  * This tool works like pnpm for PHP, using a global package store
  * to avoid re-downloading existing packages while maintaining
  * compatibility with composer.json format.
+ * 
+ * @author Rahul Godiyal <rgodiyal482@gmail.com>
+ * @version 1.0.0
  */
 
 use PComposer\PComposer;

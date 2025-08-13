@@ -2,6 +2,8 @@
 
 This directory contains the built distribution files for PComposer v1.0.0.
 
+**Author:** Rahul Godiyal <rgodiyal482@gmail.com>
+
 ## Files
 
 - **pcomposer-1.0.0.php** - Single-file executable (works on all platforms)

@@ -1,6 +1,8 @@
 # PComposer v1.0.0 Checksums
-# Generated: 2025-08-12 13:05:23
+# Author: Rahul Godiyal <rgodiyal482@gmail.com>
+# Generated: 2025-08-13 07:36:14
 
-1fea33f14c61738808546864fcae081b8df0102c8afe1353eda2c58d587670f2  README.md
-978f8dcf64a0d9ec2a86b4c1b2ad7034c83b9e7b146c3de69f9ea45169fb4485  install.sh
-44341f4a5b8845163c7b44fdf4865322704d9a25f9e074f9573fd68916c80cdd  pcomposer-1.0.0.php
+3a254a78e7546cddb79d78266449c9927f71bb9fa15c29d463612eb2bec670a0  README.md
+2637f02eb0b2e3a8d9e5ed63c0193ebd406c78a4490db39e0121c125c7a38a1c  checksums.txt
+cfa8caa0c5b6b26a091c4986353f1ba7b8d6ba5970ed8e6eb48ee5f002160674  install.sh
+75a1b423983182afb862faedd82b1a1b8088f99adf140363cfaed1e2cb227c53  pcomposer-1.0.0.php
